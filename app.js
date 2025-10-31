@@ -4,121 +4,300 @@
 
 // Pricing data for services
 const pricingData = {
-    vps: {
-        title: 'VPS Server',
-        plans: [
-            {
-                name: 'Performance',
-                price: '199.000đ/tháng',
-                specs: {
-                    cpu: '2 vCPU',
-                    ram: '4GB RAM',
-                    disk: '80GB NVMe SSD',
-                    bandwidth: '100Mbps Unlimited',
-                    antiddos: 'AntiDDoS Basic'
-                }
-            },
-            {
-                name: 'Plastic',
-                price: '399.000đ/tháng',
-                specs: {
-                    cpu: '4 vCPU',
-                    ram: '8GB RAM',
-                    disk: '160GB NVMe SSD',
-                    bandwidth: '200Mbps Unlimited',
-                    antiddos: 'AntiDDoS Pro'
-                }
-            },
-            {
-                name: 'Premium',
-                price: '799.000đ/tháng',
-                specs: {
-                    cpu: '8 vCPU',
-                    ram: '16GB RAM',
-                    disk: '320GB NVMe SSD',
-                    bandwidth: '500Mbps Unlimited',
-                    antiddos: 'AntiDDoS Premium'
-                }
-            }
-        ]
-    },
-    cloudgame: {
-        title: 'Cloud Game Server',
-        plans: [
-            {
-                name: 'Performance',
-                price: '299.000đ/tháng',
-                specs: {
-                    cpu: '4 vCPU',
-                    ram: '8GB RAM',
-                    disk: '120GB NVMe SSD',
-                    bandwidth: '200Mbps Unlimited',
-                    antiddos: 'AntiDDoS Gaming'
-                }
-            },
-            {
-                name: 'Plastic',
-                price: '599.000đ/tháng',
-                specs: {
-                    cpu: '8 vCPU',
-                    ram: '16GB RAM',
-                    disk: '240GB NVMe SSD',
-                    bandwidth: '500Mbps Unlimited',
-                    antiddos: 'AntiDDoS Gaming Pro'
-                }
-            },
-            {
-                name: 'Premium',
-                price: '1.199.000đ/tháng',
-                specs: {
-                    cpu: '16 vCPU',
-                    ram: '32GB RAM',
-                    disk: '480GB NVMe SSD',
-                    bandwidth: '1Gbps Unlimited',
-                    antiddos: 'AntiDDoS Gaming Premium'
-                }
-            }
-        ]
-    },
-    dedicated: {
-        title: 'Dedicated Server',
-        plans: [
-            {
-                name: 'Performance',
-                price: '2.999.000đ/tháng',
-                specs: {
-                    cpu: 'Intel Xeon E-2236',
-                    ram: '32GB DDR4 ECC',
-                    disk: '2x 480GB NVMe SSD',
-                    bandwidth: '1Gbps Unlimited',
-                    antiddos: 'AntiDDoS Enterprise'
-                }
-            },
-            {
-                name: 'Plastic',
-                price: '4.999.000đ/tháng',
-                specs: {
-                    cpu: 'Intel Xeon E-2288G',
-                    ram: '64GB DDR4 ECC',
-                    disk: '2x 960GB NVMe SSD',
-                    bandwidth: '10Gbps Unlimited',
-                    antiddos: 'AntiDDoS Enterprise Pro'
-                }
-            },
-            {
-                name: 'Premium',
-                price: '9.999.000đ/tháng',
-                specs: {
-                    cpu: 'AMD EPYC 7443P',
-                    ram: '128GB DDR4 ECC',
-                    disk: '4x 1.92TB NVMe SSD',
-                    bandwidth: '10Gbps Unlimited',
-                    antiddos: 'AntiDDoS Enterprise Premium'
-                }
-            }
-        ]
-    }
-};
+  gameServer: {
+    title: 'Game Server Hosting',
+    plans: [
+      {
+        name: 'Starter-1',
+        price: '149.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon E3-1230 v2 (4C/8T)',
+          ram: '4GB DDR4',
+          disk: '40GB NVMe SSD',
+          bandwidth: '50Mbps Unlimited',
+          gpu: 'Không có',
+          antiddos: 'AntiDDoS Basic'
+        }
+      },
+      {
+        name: 'Starter-2',
+        price: '249.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon E5-2620 v3 (6C/12T)',
+          ram: '8GB DDR4',
+          disk: '80GB NVMe SSD',
+          bandwidth: '100Mbps Unlimited',
+          gpu: 'Không có',
+          antiddos: 'AntiDDoS Basic'
+        }
+      },
+      {
+        name: 'Starter-3',
+        price: '349.000đ/tháng',
+        specs: {
+          cpu: 'AMD Ryzen 5 3600 (6C/12T)',
+          ram: '12GB DDR4',
+          disk: '100GB NVMe SSD',
+          bandwidth: '150Mbps Unlimited',
+          gpu: 'GTX 1050 2GB',
+          antiddos: 'AntiDDoS Basic'
+        }
+      },
+      {
+        name: 'Standard-1',
+        price: '499.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon E5-2670 v3 (12C/24T)',
+          ram: '16GB DDR4',
+          disk: '160GB NVMe SSD',
+          bandwidth: '200Mbps Unlimited',
+          gpu: 'GTX 1060 3GB',
+          antiddos: 'AntiDDoS Pro'
+        }
+      },
+      {
+        name: 'Standard-2',
+        price: '699.000đ/tháng',
+        specs: {
+          cpu: 'AMD Ryzen 7 3700X (8C/16T)',
+          ram: '24GB DDR4',
+          disk: '240GB NVMe SSD',
+          bandwidth: '300Mbps Unlimited',
+          gpu: 'GTX 1660 6GB',
+          antiddos: 'AntiDDoS Pro'
+        }
+      },
+      {
+        name: 'Standard-3',
+        price: '999.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon E-2278G (8C/16T)',
+          ram: '32GB DDR4 ECC',
+          disk: '320GB NVMe SSD',
+          bandwidth: '400Mbps Unlimited',
+          gpu: 'RTX 2060 6GB',
+          antiddos: 'AntiDDoS Gaming'
+        }
+      },
+      {
+        name: 'Advanced-1',
+        price: '1.499.000đ/tháng',
+        specs: {
+          cpu: 'AMD Ryzen 9 5900X (12C/24T)',
+          ram: '48GB DDR4',
+          disk: '480GB NVMe SSD',
+          bandwidth: '500Mbps Unlimited',
+          gpu: 'RTX 3060 12GB',
+          antiddos: 'AntiDDoS Gaming'
+        }
+      },
+      {
+        name: 'Advanced-2',
+        price: '1.999.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon E-2388G (8C/16T)',
+          ram: '64GB DDR4 ECC',
+          disk: '640GB NVMe SSD',
+          bandwidth: '700Mbps Unlimited',
+          gpu: 'RTX 3070 8GB',
+          antiddos: 'AntiDDoS Gaming Pro'
+        }
+      },
+      {
+        name: 'Advanced-3',
+        price: '2.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD Ryzen 9 7950X (16C/32T)',
+          ram: '96GB DDR5',
+          disk: '1TB NVMe Gen4 SSD',
+          bandwidth: '1Gbps Unlimited',
+          gpu: 'RTX 4070 12GB',
+          antiddos: 'AntiDDoS Gaming Pro'
+        }
+      },
+      {
+        name: 'Pro-1',
+        price: '3.999.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon Gold 6248R (24C/48T)',
+          ram: '128GB DDR4 ECC',
+          disk: '1.5TB NVMe SSD',
+          bandwidth: '2Gbps Unlimited',
+          gpu: 'RTX 4070Ti 12GB',
+          antiddos: 'AntiDDoS Pro+'
+        }
+      },
+      {
+        name: 'Pro-2',
+        price: '4.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD EPYC 7302P (16C/32T)',
+          ram: '128GB DDR4 ECC',
+          disk: '1.92TB NVMe SSD',
+          bandwidth: '3Gbps Unlimited',
+          gpu: 'RTX 4080 16GB',
+          antiddos: 'AntiDDoS Pro+'
+        }
+      },
+      {
+        name: 'Pro-3',
+        price: '5.999.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon Silver 4314 (16C/32T)',
+          ram: '192GB DDR4 ECC',
+          disk: '2TB NVMe SSD',
+          bandwidth: '3Gbps Unlimited',
+          gpu: 'RTX 4080 Super 16GB',
+          antiddos: 'AntiDDoS Enterprise'
+        }
+      },
+      {
+        name: 'Enterprise-1',
+        price: '7.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD EPYC 7443P (24C/48T)',
+          ram: '256GB DDR4 ECC',
+          disk: '2.5TB NVMe SSD',
+          bandwidth: '5Gbps Unlimited',
+          gpu: 'RTX 4090 24GB',
+          antiddos: 'AntiDDoS Enterprise Premium'
+        }
+      },
+      {
+        name: 'Enterprise-2',
+        price: '9.999.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon Gold 6258R (28C/56T)',
+          ram: '256GB DDR4 ECC',
+          disk: '3TB NVMe SSD',
+          bandwidth: '5Gbps Unlimited',
+          gpu: 'RTX 4090 24GB',
+          antiddos: 'AntiDDoS Enterprise Premium'
+        }
+      },
+      {
+        name: 'Enterprise-3',
+        price: '12.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD EPYC 9654 (32C/64T)',
+          ram: '384GB DDR5 ECC',
+          disk: '4TB NVMe SSD',
+          bandwidth: '8Gbps Unlimited',
+          gpu: 'RTX 5000 Ada 24GB',
+          antiddos: 'AntiDDoS Enterprise Ultra'
+        }
+      },
+      {
+        name: 'Titan-1',
+        price: '15.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD Threadripper 7980X (64C/128T)',
+          ram: '512GB DDR5',
+          disk: '6TB NVMe Gen4 SSD',
+          bandwidth: '10Gbps Unlimited',
+          gpu: 'RTX 5000 Ada 32GB',
+          antiddos: 'AntiDDoS Ultra'
+        }
+      },
+      {
+        name: 'Titan-2',
+        price: '18.999.000đ/tháng',
+        specs: {
+          cpu: 'Intel Xeon Platinum 8370C (32C/64T)',
+          ram: '512GB DDR4 ECC',
+          disk: '8TB NVMe SSD',
+          bandwidth: '10Gbps Unlimited',
+          gpu: 'RTX 6000 Ada 48GB',
+          antiddos: 'AntiDDoS Ultra'
+        }
+      },
+      {
+        name: 'Titan-3',
+        price: '21.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD EPYC 9654 (96C/192T)',
+          ram: '768GB DDR5 ECC',
+          disk: '10TB NVMe SSD',
+          bandwidth: '10Gbps Unlimited',
+          gpu: 'RTX 6000 Ada 48GB',
+          antiddos: 'AntiDDoS Ultra'
+        }
+      },
+      {
+        name: 'Extreme-1',
+        price: '24.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD EPYC 9754 (128C/256T)',
+          ram: '1024GB DDR5 ECC',
+          disk: '12TB NVMe SSD',
+          bandwidth: '10Gbps Unlimited',
+          gpu: '2x RTX 4090 24GB',
+          antiddos: 'AntiDDoS Supreme'
+        }
+      },
+      {
+        name: 'Extreme-2',
+        price: '27.999.000đ/tháng',
+        specs: {
+          cpu: 'Dual Xeon Platinum 8490H (2x60C/120T)',
+          ram: '1536GB DDR5 ECC',
+          disk: '16TB NVMe SSD',
+          bandwidth: '20Gbps Unlimited',
+          gpu: '2x RTX 5000 Ada 32GB',
+          antiddos: 'AntiDDoS Supreme'
+        }
+      },
+      {
+        name: 'Extreme-3',
+        price: '29.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD EPYC 9754 (128C/256T)',
+          ram: '2048GB DDR5 ECC',
+          disk: '20TB NVMe SSD',
+          bandwidth: '20Gbps Unlimited',
+          gpu: '4x RTX 4090 24GB',
+          antiddos: 'AntiDDoS Supreme'
+        }
+      },
+      {
+        name: 'Ultimate-1',
+        price: '34.999.000đ/tháng',
+        specs: {
+          cpu: 'Dual Xeon Platinum 8592+ (2x64C/128T)',
+          ram: '3TB DDR5 ECC',
+          disk: '24TB NVMe SSD',
+          bandwidth: '25Gbps Unlimited',
+          gpu: '4x RTX 6000 Ada 48GB',
+          antiddos: 'AntiDDoS Extreme'
+        }
+      },
+      {
+        name: 'Ultimate-2',
+        price: '39.999.000đ/tháng',
+        specs: {
+          cpu: 'AMD EPYC 9754 (128C/256T)',
+          ram: '4TB DDR5 ECC',
+          disk: '32TB NVMe SSD',
+          bandwidth: '40Gbps Unlimited',
+          gpu: '8x RTX 6000 Ada 48GB',
+          antiddos: 'AntiDDoS Extreme'
+        }
+      },
+      {
+        name: 'Ultimate-3',
+        price: '49.999.000đ/tháng',
+        specs: {
+          cpu: 'Dual AMD EPYC 9754 (256C/512T)',
+          ram: '6TB DDR5 ECC',
+          disk: '40TB NVMe SSD',
+          bandwidth: '50Gbps Unlimited',
+          gpu: '8x RTX 6000 Ada 48GB',
+          antiddos: 'AntiDDoS Extreme Plus'
+        }
+      }
+    ]
+  }
+}; 
 
 // ==========================================
 // Header Scroll Effect
