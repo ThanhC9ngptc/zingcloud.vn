@@ -110,6 +110,42 @@
                         <button class="btn-service btn-zoom" data-testid="button-view-vps">Xem chi tiết</button>
                     </div>
 
+     <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section py-16 text-center">
+            <h2 class="text-3xl font-bold text-white mb-8">Thư viện hình ảnh</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 px-4">
+                <!-- Ảnh 1 -->
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="anh1.png" alt="Ảnh 1" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Ảnh 2 -->
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="anh2.png" alt="Ảnh 2" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Ảnh 3 -->
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="anh3.png" alt="Ảnh 3" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Ảnh 4 -->
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="anh4.png" alt="Ảnh 4" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Ảnh 5 -->
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="anh5.png" alt="Ảnh 5" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Ảnh 6 -->
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="anh6.png" alt="Ảnh 6" class="w-full h-40 object-cover">
+                </div>
+            </div>
+        </section>
+
                     <!-- Cloud Game Service -->
                     <div class="service-card" data-service="cloudgame" data-testid="card-service-cloudgame">
                         <div class="service-icon">
@@ -300,7 +336,7 @@
                 </svg>
             </button>
             <h2 id="registerModalTitle" class="modal-title">Đăng ký</h2>
-            <form class="auth-form" id="registerForm" data-testid="form-register">
+            <form class="auth-form" id="registerForm" data-testiddata-testid="form-register">
                 <div class="form-group">
                     <label for="registerEmail">Email</label>
                     <input type="email" id="registerEmail" data-testid="input-register-email" required placeholder="your@email.com" aria-label="Email">
@@ -358,4 +394,4 @@
     <!-- Custom JavaScript -->
     <script src="app.js"></script>
 </body>
-</html>
+                        </html>
