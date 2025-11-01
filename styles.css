@@ -1078,3 +1078,56 @@ header {
   transform: scale(1.1);
   stroke: #c084fc;
 }
+
+/* =========================
+   FEATURES SECTION
+   ========================= */
+
+.features-section {
+  background: #0b0d17;
+  color: #fff;
+}
+
+/* Thẻ tính năng */
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* Icon tròn phía trên */
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Tiêu đề + mô tả */
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature-text {
+  color: #a0aec0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Hover đẹp mắt */
+.feature-card:hover {
+  transform: translateY(-6px);
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 0 10px 25px rgba(167, 139, 250, 0.25);
+}
