@@ -149,6 +149,18 @@ header {
     transition: all 0.2s ease;
 }
 
+.lanyard-wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transform-origin: center;
+}
+
 .btn-login:hover {
     background: var(--glass-bg);
     border-color: rgba(139, 92, 246, 0.4);
