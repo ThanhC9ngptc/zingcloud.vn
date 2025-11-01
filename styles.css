@@ -1107,3 +1107,37 @@ header {
     padding: 1.5rem;
   }
 }
+
+/* =========================
+   HARDWARE SECTION (Phần cứng chất lượng cao)
+   ========================= */
+
+.hardware-section {
+  background: #0b0d17;
+  color: #fff;
+}
+
+.hardware-card {
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.hardware-card:hover {
+  background: rgba(167, 139, 250, 0.06);
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.6);
+}
+
+.hardware-card .icon {
+  font-size: 1.8rem;
+}
+
+.hardware-info {
+  background: linear-gradient(90deg, rgba(88, 28, 135, 0.2), rgba(37, 99, 235, 0.2));
+  backdrop-filter: blur(8px);
+  border-radius: 1.25rem;
+}
+
+.hardware-info li::marker {
+  color: #a78bfa;
+}
