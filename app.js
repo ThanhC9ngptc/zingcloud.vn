@@ -617,6 +617,30 @@ console.log('%c🚀 Zing Cloud', 'color: #8B5CF6; font-size: 24px; font-weight: 
 console.log('%cPremium Cloud Services', 'color: #3B82F6; font-size: 14px;');
 console.log('%cWebsite loaded successfully!', 'color: #06B6D4; font-size: 12px;');
 
+/* ===== Nút phát nhạc cố định ===== */
+.music-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.music-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+}
+
+.music-button.playing {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+    }
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const box = document.getElementById("musicBox");
