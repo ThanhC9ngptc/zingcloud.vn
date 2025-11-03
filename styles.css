@@ -1142,29 +1142,27 @@ header {
   color: #a78bfa;
 }
 
-/* Nút phát nhạc cố định góc phải */
+/* ===== Nút phát nhạc cố định ===== */
 .music-button {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 40px;
+  right: 40px;
   background: linear-gradient(90deg, #8b5cf6, #3b82f6);
-  color: #fff;
+  color: white;
   font-weight: 600;
-  padding: 12px 20px;
-  border-radius: 50px;
+  padding: 12px 24px;
+  border-radius: 9999px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
   z-index: 9999;
-  user-select: none;
 }
 
 .music-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
 }
 
 .music-button.playing {
   background: linear-gradient(90deg, #06b6d4, #3b82f6);
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
 }
