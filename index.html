@@ -182,59 +182,42 @@
   </div>
 </section>
 
-        <!-- Scripts khác nếu có -->
-    <script src="app.js"></script>
+        <!-- Nút phát nhạc -->
+<div id="musicButton" class="music-button">
+  🎵 Phát
+</div>
 
-    <!-- Ô hoặc nút phát nhạc -->
-    <div id="musicBox" style="
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: linear-gradient(90deg, #8b5cf6, #3b82f6);
-      color: white;
-      padding: 12px 18px;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      font-weight: 600;
-      user-select: none;
-    ">
-      ▶️ Phát nhạc
-    </div>
+<!-- Nhạc nền -->
+<audio id="bgMusic" preload="auto" loop>
+  <source src="nhac.mp3" type="audio/mpeg">
+</audio>
 
-    <!-- File nhạc -->
-    <audio id="pageMusic" preload="auto" loop>
-      <source src="nhac.mp3" type="audio/mpeg">
-    </audio>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const musicBtn = document.getElementById("musicButton");
+  const audio = document.getElementById("bgMusic");
+  let isPlaying = false;
 
-    <!-- Script điều khiển phát nhạc -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const box = document.getElementById("musicBox");
-      const music = document.getElementById("pageMusic");
-      let playing = false;
-
-      box.addEventListener("click", async () => {
-        if (!playing) {
-          try {
-            await music.play();
-            playing = true;
-            box.textContent = "⏸️ Dừng nhạc";
-            box.style.background = "linear-gradient(90deg, #3b82f6, #8b5cf6)";
-          } catch (err) {
-            alert("⚠️ Trình duyệt chặn phát nhạc, hãy thử lại sau khi tương tác!");
-          }
-        } else {
-          music.pause();
-          playing = false;
-          box.textContent = "▶️ Phát nhạc";
-          box.style.background = "linear-gradient(90deg, #8b5cf6, #3b82f6)";
-        }
-      });
-    });
-    </script>
-</body>
-</html>
+  musicBtn.addEventListener("click", async () => {
+    if (!isPlaying) {
+      try {
+        await audio.play();
+        isPlaying = true;
+        musicBtn.textContent = "⏸ Dừng";
+        musicBtn.classList.add("playing");
+      } catch (err) {
+        alert("Trình duyệt đang chặn phát nhạc, hãy thử nhấn lại!");
+      }
+    } else {
+      audio.pause();
+      isPlaying = false;
+      musicBtn.textContent = "🎵 Phát";
+      musicBtn.classList.remove("playing");
+    }
+  });
+});
+</script>
+    
         <!-- Features Section -->
 <section id="features" class="features-section py-20 bg-[#0d0d0d] text-white">
   <div class="container mx-auto px-6 text-center">
