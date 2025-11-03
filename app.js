@@ -617,54 +617,63 @@ console.log('%c🚀 Zing Cloud', 'color: #8B5CF6; font-size: 24px; font-weight: 
 console.log('%cPremium Cloud Services', 'color: #3B82F6; font-size: 14px;');
 console.log('%cWebsite loaded successfully!', 'color: #06B6D4; font-size: 12px;');
 
-/* ===== Nút phát nhạc cố định ===== */
-.music-button {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
-  color: white;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 9999px;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
-  z-index: 9999;
-}
-
-.music-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
-}
-
-.music-button.playing {
-  background: linear-gradient(90deg, #06b6d4, #3b82f6);
-    }
-<script>
 document.addEventListener("DOMContentLoaded", () => {
-  const box = document.getElementById("musicBox");
-  const music = document.getElementById("pageMusic");
-  let playing = false;
+  const musicBtn = document.getElementById("musicButton");
+  const audio = document.getElementById("bgMusic");
+  const src = document.getElementById("bgSource")?.src || null;
+  if (!musicBtn || !audio) return;
 
-  if (!box || !music) return;
+  // Kiểm tra file tồn tại (fetch HEAD)
+  async function checkAudioUrl(url) {
+    try {
+      const res = await fetch(url, { method: 'HEAD' });
+      return res.ok && res.headers.get('content-type')?.startsWith('audio');
+    } catch (e) {
+      return false;
+    }
+  }
 
-  box.addEventListener("click", async () => {
-    if (!playing) {
-      try {
-        await music.play();
-        playing = true;
-        box.textContent = "⏸️ Dừng nhạc";
-        box.style.background = "linear-gradient(90deg, #3b82f6, #8b5cf6)";
-      } catch (err) {
-        alert("⚠️ Trình duyệt chặn phát nhạc, hãy thử lại sau khi tương tác!");
+  (async () => {
+    if (src) {
+      const ok = await checkAudioUrl(src);
+      if (!ok) {
+        console.warn('Audio file không truy cập được:', src);
+        // fallback: nếu có file local nhac.mp3 thì dùng
+        const local = 'nhac.mp3';
+        try {
+          const r2 = await fetch(local, { method: 'HEAD' });
+          if (r2.ok) {
+            document.getElementById('bgSource').src = local;
+            audio.load();
+            console.log('Chuyển sang nhac.mp3 local fallback');
+          } else {
+            console.error('Không tìm thấy file nhạc (raw và local đều fail).');
+          }
+        } catch (e) {
+          console.error('Lỗi kiểm tra local audio:', e);
+        }
       }
-    } else {
-      music.pause();
-      playing = false;
-      box.textContent = "▶️ Phát nhạc";
-      box.style.background = "linear-gradient(90deg, #8b5cf6, #3b82f6)";
+    }
+  })();
+
+  let isPlaying = false;
+
+  musicBtn.addEventListener("click", async () => {
+    try {
+      if (!isPlaying) {
+        await audio.play();
+        isPlaying = true;
+        musicBtn.textContent = "⏸ Dừng";
+        musicBtn.classList.add("playing");
+      } else {
+        audio.pause();
+        isPlaying = false;
+        musicBtn.textContent = "🎵 Phát";
+        musicBtn.classList.remove("playing");
+      }
+    } catch (err) {
+      console.warn("Không thể phát nhạc:", err);
+      alert("Trình duyệt chặn phát nhạc — thử nhấn lại hoặc mở console để xem lỗi.");
     }
   });
 });
-</script>
