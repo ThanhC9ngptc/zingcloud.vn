@@ -616,3 +616,31 @@ navLinks.forEach(link => {
 console.log('%c🚀 Zing Cloud', 'color: #8B5CF6; font-size: 24px; font-weight: bold;');
 console.log('%cPremium Cloud Services', 'color: #3B82F6; font-size: 14px;');
 console.log('%cWebsite loaded successfully!', 'color: #06B6D4; font-size: 12px;');
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const box = document.getElementById("musicBox");
+  const music = document.getElementById("pageMusic");
+  let playing = false;
+
+  if (!box || !music) return;
+
+  box.addEventListener("click", async () => {
+    if (!playing) {
+      try {
+        await music.play();
+        playing = true;
+        box.textContent = "⏸️ Dừng nhạc";
+        box.style.background = "linear-gradient(90deg, #3b82f6, #8b5cf6)";
+      } catch (err) {
+        alert("⚠️ Trình duyệt chặn phát nhạc, hãy thử lại sau khi tương tác!");
+      }
+    } else {
+      music.pause();
+      playing = false;
+      box.textContent = "▶️ Phát nhạc";
+      box.style.background = "linear-gradient(90deg, #8b5cf6, #3b82f6)";
+    }
+  });
+});
+</script>
